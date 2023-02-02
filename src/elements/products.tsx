@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  doc,
-  collection,
-  getDocs,
-  deleteDoc,
-  onSnapshot,
-} from "firebase/firestore";
+// Firebase
+import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { useFirebase } from "../hooks/useFirebaseData";
-
+// Utils
 import {
   TrashIcon,
   PencilIcon,
@@ -17,6 +10,7 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
 
+// Still using demi data for this one
 const Products = () => {
   const list = [
     {
@@ -44,37 +38,6 @@ const Products = () => {
       price: "233",
     },
   ];
-
-  // useEffect(() => {
-  //   let list: any = [];
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await getDocs(collection(db, "products", "food", "fruit"));
-  //       res.forEach((doc) => {
-  //         let check = { createdAt: "", ...doc.data() };
-  //         const { createdAt, ...other } = check;
-  //         list.push({ id: doc.id, other });
-  //       });
-  //       setData(list);
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   };
-  //   fetchData();
-  //   // const unsub = onSnapshot(collection(db, "products", "food", "fruit"), (snapShot) => {
-  //   //   let list: any = [];
-  //   //   snapShot.docs.forEach((doc) => {
-  //   //     list.push({ id: doc.id, ...doc.data() });
-  //   //   });
-  //   //   setData(list);
-  //   // });
-
-  //   return () => {
-  //     // unsub();
-  //   };
-  // }, []);
-
-  const { data } = useFirebase("products");
 
   const handleDelete = async (id: string) => {
     try {

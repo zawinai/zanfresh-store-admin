@@ -1,7 +1,17 @@
+// React
 import React from "react";
+// Utils
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+// Hook
+import { useFirebase } from "../hooks/useFirebaseData";
+// types
+import { customerTypes } from "../types";
 
 const Users = () => {
+  const { data } = useFirebase<customerTypes>("customers");
+
+  console.log(data);
+
   return (
     <div className='pt-3'>
       <h1 className='text-4xl text-center'>Customers</h1>
@@ -13,24 +23,29 @@ const Users = () => {
           </button>
         </div>
       </div>
-      <table className='w-full  text-xs md:text-sm gap-y-2 px-2'>
+      <table className='w-full text-xs md:text-sm gap-y-2 px-2'>
         <thead className='border-2 px-2 py-3 w-full bg-blue-500 text-white'>
-          <tr className='grid grid-cols-10 py-3 place-items-start px-2'>
-            <th className='col-span-2'>Name</th>
-            <th className='col-span-2'>Joined Date</th>
-            <th className='col-span-2'>Amount Spent</th>
-            <th className='col-span-2'>Order times</th>
+          <tr className='grid grid-cols-12 py-3 place-items-start px-2'>
+            <th className='col-span-4'>Name</th>
+            <th className='col-span-2'>Joined</th>
+            <th className='col-span-2'>Spent</th>
+            <th className='col-span-2'>Orders</th>
             <th className='col-span-2'>City</th>
           </tr>
         </thead>
         <tbody className='border-3'>
-          <tr className='grid grid-cols-10 w-full mb-2 py-3 place-items-start px-2'>
-            <td className='col-span-2'>Zaw win Naing</td>
-            <td className='col-span-2'>12,2, 21</td>
-            <td className='col-span-2'>30,000</td>
-            <td className='col-span-2'>30</td>
-            <td className='col-span-2'>Yangon</td>
-          </tr>
+          {data.map(({ id, name, joined, spent, orders, city }) => (
+            <tr
+              className='grid grid-cols-12 w-full mb-2 py-3 place-items-start px-2'
+              key={id}
+            >
+              <td className='col-span-4'>{name}</td>
+              <td className='col-span-2'>{joined}</td>
+              <td className='col-span-2'>{spent}</td>
+              <td className='col-span-2'>{orders}</td>
+              <td className='col-span-2'>{city}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

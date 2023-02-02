@@ -6,6 +6,9 @@ module.exports = {
       gridTemplateColumns: {
         "feedback-cards": "repeat(auto-fit, minmax(400px, 1fr))",
       },
+      screens: {
+        small: { raw: "(min-width : 1100px)" },
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
