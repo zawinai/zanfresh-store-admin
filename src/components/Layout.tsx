@@ -8,13 +8,13 @@ import Products from "../elements/products";
 import Orders from "../elements/orders";
 import Feedbacks from "../elements/feedback";
 // Hooks
-import { useContext } from "react";
-import { ShopContext } from "../context/shopContext";
+import { useAuth } from "../context/authContext";
+
 // Utils
 import { HashLoader } from "react-spinners";
 
 const Layout = () => {
-  const { user, loading } = useContext(ShopContext);
+  const { user, loading } = useAuth();
 
   return loading ? (
     <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>

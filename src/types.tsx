@@ -31,3 +31,10 @@ export type customerTypes = {
   spent: number;
   city: string;
 };
+
+export interface IAuthUser {
+  user: any;
+  setUser: React.Dispatch<React.SetStateAction<any>>;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}

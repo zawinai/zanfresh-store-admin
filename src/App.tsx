@@ -22,9 +22,9 @@ function App() {
 
   return (
     <div className='grid grid-cols-12 gap-x-5 max-w-[1300px] mx-auto'>
-      <div className='block small:hidden'>
+      <div className=' block small:hidden'>
         <Bars3Icon
-          className='w-[40px] absolute right-3 z-50'
+          className='w-[40px] h-auto absolute right-1 z-50'
           onClick={() => setOpen(!open)}
         />
         <Transition

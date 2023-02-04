@@ -1,13 +1,12 @@
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 import { auth } from "../firebase.config";
-import { useContext } from "react";
-import { ShopContext } from "../context/shopContext";
+import { useAuth } from "../context/authContext";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function Signin() {
-  const { user, setUser } = useContext(ShopContext);
+  const { user, setUser } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPwd] = useState("");

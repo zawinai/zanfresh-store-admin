@@ -14,12 +14,10 @@ import {
   ChatBubbleLeftEllipsisIcon,
 } from "@heroicons/react/24/solid";
 
-import { useContext, Fragment, useState } from "react";
-import { ShopContext } from "../context/shopContext";
-import { Transition } from "@headlessui/react";
+import { useAuth } from "../context/authContext";
 
 const Sidebar = () => {
-  const { user } = useContext(ShopContext);
+  const { user } = useAuth();
   const { pathname } = useLocation();
 
   return (

@@ -18,7 +18,7 @@ const Products = () => {
       description: "Really nice",
       clientid: "1",
       imgUrl: "/backpack-1.png",
-      name: "good man",
+      name: "product1",
       price: "233",
     },
     {
@@ -26,7 +26,7 @@ const Products = () => {
       description: "Really nice",
       clientid: "2",
       imgUrl: "/cap-gr.png",
-      name: "better",
+      name: "product2",
       price: "233",
     },
     {
@@ -34,7 +34,7 @@ const Products = () => {
       description: "Really nice",
       clientid: "3",
       imgUrl: "/hoodie-b-yl.png",
-      name: "best",
+      name: "product3",
       price: "233",
     },
   ];

@@ -38,7 +38,7 @@ export function useFirebase<T>(key: string) {
       setLoading(false);
       unsub();
     };
-  }, []);
+  }, [key]);
 
   return { data, loading };
 }
